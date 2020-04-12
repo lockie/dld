@@ -1,0 +1,34 @@
+linux-release:
+  stage: deploy
+  only:
+    - master
+  image:
+    name: fukamachi/sbcl:latest-ubuntu
+    entrypoint: [""]
+  before_script:
+    - apt-get update -qq
+    - apt-get install -y --no-install-recommends gcc git liballegro-acodec5.2 liballegro-audio5.2 liballegro-image5.2 liballegro-dialog5.2 liballegro-ttf5.2 liballegro-physfs5.2 liballegro-video5.2 libffi-dev libc-dev pkg-config
+    - cp /lib/x86_64-linux-gnu/libz.so.1 /usr/lib/libz.so
+    - git clone --depth=1 https://github.com/resttime/cl-liballegro /root/.roswell/local-projects/cl-liballegro
+    - git clone -b develop --depth=1 https://gitlab.com/lockie/d2clone-kit /root/.roswell/local-projects/d2clone-kit
+  script:
+    - sbcl --load build.lisp
+  artifacts:
+    paths:
+      - darkness-looming-the-dawn.tar.gz
+
+windows-release:
+  stage: deploy
+  only:
+    - master
+  image:
+    name: scottyhardy/docker-wine
+    entrypoint: [""]
+  before_script:
+    - apt-get update -qq
+    - apt-get install -y --no-install-recommends git p7zip-full xz-utils zip
+  script:
+    - ./build-windows.sh
+  artifacts:
+    paths:
+      - darkness-looming-the-dawn.zip
