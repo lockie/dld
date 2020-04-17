@@ -26,4 +26,7 @@
          (:character :target-x 18d0 :target-y 45d0 :speed 1d0)
          (:hp :current 50d0 :maximum 50d0))
         ((:coordinate :x 0d0 :y 0d0)
-         (:map :prefab :map)))))))
+         (:map :prefab :map))))
+     :display-width 800
+     :display-height 600
+     :display-font "alegreya.otf")))
