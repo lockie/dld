@@ -37,7 +37,7 @@ wget -q https://beta.quicklisp.org/quicklisp.lisp -P /tmp
 
 git clone --depth=1 https://github.com/resttime/cl-liballegro "$PREFIX/drive_c/users/$(whoami)/quicklisp/local-projects/cl-liballegro"
 git clone -b develop --depth=1 https://gitlab.com/lockie/d2clone-kit "$PREFIX/drive_c/users/$(whoami)/quicklisp/local-projects/d2clone-kit"
-echo "(ql:quickload '(:d2clone-kit :deploy)) (push (truename \".\") asdf:*central-registry*) (push :release *features*) (asdf:make :dld)" | wine sbcl --dynamic-space-size 2048
+echo "(ql:quickload '(:d2clone-kit :deploy)) (push (truename \".\") asdf:*central-registry*) (push :release *features*) (asdf:make :dld)" | wine sbcl
 
 cp "$PREFIX/drive_c/mingw64/bin/libgcc_s_seh-1.dll" bin/
 cp "$PREFIX/drive_c/mingw64/bin/libstdc++-6.dll" bin/
