@@ -12,7 +12,7 @@ linux-release:
     - git clone --depth=1 https://github.com/resttime/cl-liballegro /root/.roswell/local-projects/cl-liballegro
     - git clone -b develop --depth=1 https://gitlab.com/lockie/d2clone-kit /root/.roswell/local-projects/d2clone-kit
   script:
-    - sbcl --load build.lisp
+    - sbcl --dynamic-space-size 2048 --load build.lisp
   artifacts:
     paths:
       - darkness-looming-the-dawn.tar.gz
