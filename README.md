@@ -9,11 +9,18 @@ Just grab executables from the [CI pipelines](https://gitlab.com/lockie/darkness
 Building from source
 --------------------
 To build from source, you'll need
+* [Git LFS](https://git-lfs.github.com) addon.
 * [SBCL](http://sbcl.org) compiler.
 * [Quicklisp](https://www.quicklisp.org) installation.
 * [liballegro](https://liballeg.org) (to install on Debian derivatives, run `sudo apt-get install liballegro-acodec5.2 liballegro-audio5.2 liballegro-image5.2 liballegro-dialog5.2 liballegro-ttf5.2 liballegro-physfs5.2 liballegro-video5.2`).
 * [cl-liballegro](https://github.com/resttime/cl-liballegro) in your Quicklisp's `local-projects` directory (it is not on Quicklisp as of yet).
 * [d2clone-kit](https://gitlab.com/lockie/d2clone-kit) in your Quicklisp's `local-projects` directory.
+
+FAQ
+---
+**Q: I'm building from source and I'm getting errors about assets, like _failed to open 'maps/map.tmx'_. Am I missing something?**
+
+A: As a matter of fact you are. The assets in this repository are stored using [Git LFS](https://git-lfs.github.com), please make sure you have installed it and run `git lfs fetch` after installation.
 
 Used art
 --------
