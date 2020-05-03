@@ -51,7 +51,7 @@ export VERSION
 makensis installer.nsi
 
 # Install butler
-wget https://broth.itch.ovh/butler/linux-amd64/LATEST/archive/default -P /tmp --content-disposition
+wget -q https://broth.itch.ovh/butler/linux-amd64/LATEST/archive/default -P /tmp --content-disposition
 unzip /tmp/butler-linux-amd64.zip -d /usr/local/bin
 chmod +x /usr/local/bin/butler
 

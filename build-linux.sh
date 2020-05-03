@@ -44,7 +44,7 @@ install -D assets/assets.zip -m 644 "appimage/usr/share/Darkness Looming The Daw
 appimagetool --appimage-extract-and-run -g appimage
 
 # Install butler
-wget https://broth.itch.ovh/butler/linux-amd64/LATEST/archive/default -P /tmp --content-disposition
+wget -q https://broth.itch.ovh/butler/linux-amd64/LATEST/archive/default -P /tmp --content-disposition
 unzip /tmp/butler-linux-amd64.zip -d /usr/local/bin
 chmod +x /usr/local/bin/butler
 
