@@ -24,9 +24,9 @@ windows-release:
     entrypoint: [""]
   before_script:
     - apt-get update -qq
-    - apt-get install -y --no-install-recommends git p7zip-full xz-utils zip
+    - apt-get install -y --no-install-recommends git nsis p7zip-full xz-utils zip
   script:
     - bash -x build-windows.sh
   artifacts:
     paths:
-      - darkness-looming-the-dawn.zip
+      - Darkness_Looming_The_Dawn*.exe

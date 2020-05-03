@@ -53,5 +53,5 @@ flycheck_*.el
 allegro.log
 bin/
 appimage/
-darkness-looming-the-dawn.zip
+*.exe
 *.AppImage
