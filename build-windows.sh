@@ -2,6 +2,8 @@
 
 set -e
 
+ALLEGRO_VERSION=${ALLEGRO_VERSION:-5.2.6.0}
+SBCL_VERSION=${SBCL_VERSION:-2.0.2}
 PREFIX="$HOME/.wine"
 
 winetricks > /dev/null
@@ -20,8 +22,8 @@ done
 cp "$PREFIX/drive_c/mingw64/bin/libffi-6.dll" "$PREFIX/drive_c/windows"
 cp "$PREFIX/drive_c/mingw64/bin/zlib1.dll" "$PREFIX/drive_c/windows"
 
-wget -q https://github.com/liballeg/allegro5/releases/download/5.2.6.0/allegro-x86_64-w64-mingw32-gcc-9.2.0-posix-seh-dynamic-5.2.6.0.zip -P /tmp
-unzip -qqj /tmp/allegro-x86_64-w64-mingw32-gcc-9.2.0-posix-seh-dynamic-5.2.6.0.zip 'allegro/bin/*' -d "$PREFIX/drive_c/windows/"
+wget -q https://github.com/liballeg/allegro5/releases/download/"$ALLEGRO_VERSION"/allegro-x86_64-w64-mingw32-gcc-9.2.0-posix-seh-dynamic-"$ALLEGRO_VERSION".zip -P /tmp
+unzip -qqj /tmp/allegro-x86_64-w64-mingw32-gcc-9.2.0-posix-seh-dynamic-"$ALLEGRO_VERSION".zip 'allegro/bin/*' -d "$PREFIX/drive_c/windows/"
 
 echo "REGEDIT4
 
@@ -29,15 +31,14 @@ echo "REGEDIT4
 \"PATH\"=\"C:\\\\\\\\mingw64\\\\\\\\bin\"" > /tmp/path.reg
 wine regedit /tmp/path.reg
 
-#wget -q https://static.lovesan.me/sbcl/sbcl-2.0.3-x86-64-windows-binary.msi -P /tmp
-wget -q https://netix.dl.sourceforge.net/project/sbcl/sbcl/2.0.0/sbcl-2.0.0-x86-64-windows-binary.msi -P /tmp
-wine msiexec /q /i /tmp/sbcl-2.0.0-x86-64-windows-binary.msi
+wget -q https://github.com/roswell/sbcl_bin/releases/download/${SBCl_VERSION}/sbcl-${SBCL_VERSION}-x86-64-windows-binary.msi -P /tmp
+wine msiexec /q /i /tmp/sbcl-${SBCL_VERSION}-x86-64-windows-binary.msi
 wget -q https://beta.quicklisp.org/quicklisp.lisp -P /tmp
 (cd /tmp && echo "(quicklisp-quickstart:install) (ql-util:without-prompting (ql:add-to-init-file))" | wine sbcl --load quicklisp.lisp)
 
 git clone --depth=1 https://github.com/resttime/cl-liballegro "$PREFIX/drive_c/users/$(whoami)/quicklisp/local-projects/cl-liballegro"
 git clone -b develop --depth=1 https://gitlab.com/lockie/d2clone-kit "$PREFIX/drive_c/users/$(whoami)/quicklisp/local-projects/d2clone-kit"
-echo "(ql:quickload '(:d2clone-kit :deploy)) (push (truename \".\") asdf:*central-registry*) (push :release *features*) (asdf:make :dld)" | wine sbcl --dynamic-space-size 2048
+echo "(ql:quickload '(:d2clone-kit :deploy)) (push (truename \".\") asdf:*central-registry*) (push :release *features*) (asdf:make :dld)" | wine sbcl --dynamic-space-size 2048 --disable-debugger
 
 cp "$PREFIX/drive_c/mingw64/bin/libgcc_s_seh-1.dll" bin/
 cp "$PREFIX/drive_c/mingw64/bin/libstdc++-6.dll" bin/

@@ -28,7 +28,7 @@ windows-release:
     - apt-get update -qq
     - apt-get install -y --no-install-recommends git p7zip-full xz-utils zip
   script:
-    - ./build-windows.sh
+    - sh -x build-windows.sh
   artifacts:
     paths:
       - darkness-looming-the-dawn.zip
