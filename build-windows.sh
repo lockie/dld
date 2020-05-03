@@ -46,6 +46,6 @@ git clone -b develop --depth=1 https://gitlab.com/lockie/d2clone-kit "$PREFIX/dr
 wine sbcl --dynamic-space-size 2048 --disable-debugger --load build.lisp
 cp "$PREFIX/drive_c/mingw64/bin/libgcc_s_seh-1.dll" bin/
 cp "$PREFIX/drive_c/mingw64/bin/libstdc++-6.dll" bin/
-VERSION=$(git describe --always --tags --dirty=+ --abbrev=4)
+VERSION=$(git describe --always --tags --dirty=+ --abbrev=6)
 export VERSION
 makensis installer.nsi

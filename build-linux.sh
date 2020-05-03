@@ -34,7 +34,7 @@ echo "(quicklisp-quickstart:install) (ql-util:without-prompting (ql:add-to-init-
 git clone -b develop --depth=1 https://gitlab.com/lockie/d2clone-kit.git /root/quicklisp/local-projects/d2clone-kit
 
 # Do build
-VERSION=$(git describe --always --tags --dirty=+ --abbrev=4)
+VERSION=$(git describe --always --tags --dirty=+ --abbrev=6)
 export VERSION
 sbcl --dynamic-space-size 2048 --disable-debugger --load build.lisp
 linuxdeploy --appimage-extract-and-run --executable=bin/dld --custom-apprun=AppRun --icon-file=dld.png --desktop-file=dld.desktop --appdir=appimage $(find bin -name "lib*" -printf "-l%p ")
