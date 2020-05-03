@@ -49,3 +49,11 @@ cp "$PREFIX/drive_c/mingw64/bin/libstdc++-6.dll" bin/
 VERSION=$(git describe --always --tags --dirty=+ --abbrev=6)
 export VERSION
 makensis installer.nsi
+
+# Install butler
+wget https://broth.itch.ovh/butler/linux-amd64/LATEST/archive/default -P /tmp --content-disposition
+unzip /tmp/butler-linux-amd64.zip -d /usr/local/bin
+chmod +x /usr/local/bin/butler
+
+# Upload
+butler push Darkness_Looming_The_Dawn-*-x86_64-setup.exe awkravchuk/darkness-looming-the-dawn:windows --userversion $VERSION --noprogress

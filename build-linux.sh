@@ -42,3 +42,11 @@ rm -fr appimage/usr/share/doc appimage/usr/lib/libxcb*
 install -D bin/dld appimage/usr/bin/
 install -D assets/assets.zip -m 644 "appimage/usr/share/Darkness Looming The Dawn/assets.zip"
 appimagetool --appimage-extract-and-run -g appimage
+
+# Install butler
+wget https://broth.itch.ovh/butler/linux-amd64/LATEST/archive/default -P /tmp --content-disposition
+unzip /tmp/butler-linux-amd64.zip -d /usr/local/bin
+chmod +x /usr/local/bin/butler
+
+# Upload
+butler push Darkness_Looming_The_Dawn-*-x86_64.AppImage awkravchuk/darkness-looming-the-dawn:linux --userversion $VERSION --noprogress
