@@ -56,4 +56,4 @@ unzip /tmp/butler-linux-amd64.zip -d /usr/local/bin
 chmod +x /usr/local/bin/butler
 
 # Upload
-butler push Darkness_Looming_The_Dawn-*-x86_64-setup.exe awkravchuk/darkness-looming-the-dawn:windows --userversion $VERSION --noprogress
+butler push Darkness_Looming_The_Dawn-*-setup.exe awkravchuk/darkness-looming-the-dawn:windows --userversion $VERSION --noprogress

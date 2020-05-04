@@ -6,7 +6,7 @@
 !define MUI_ABORTWARNING
 
 Name "Darkness Looming: The Dawn"
-OutFile "Darkness_Looming_The_Dawn-${MUI_VERSION}-x86_64-setup.exe"
+OutFile "Darkness_Looming_The_Dawn-${MUI_VERSION}-setup.exe"
 
 ;Default installation folder
 InstallDir "$LOCALAPPDATA\Programs\${MUI_PRODUCT}"
