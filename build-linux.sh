@@ -30,6 +30,9 @@ chmod +x /usr/local/bin/appimagetool
 wget -q https://beta.quicklisp.org/quicklisp.lisp -P /tmp
 echo "(quicklisp-quickstart:install) (ql-util:without-prompting (ql:add-to-init-file))" | sbcl --load /tmp/quicklisp.lisp
 
+# Get latest cl-liballegro
+git clone --depth=1 https://github.com/resttime/cl-liballegro /root/quicklisp/local-projects/cl-liballegro
+
 # Get d2clone-kit
 git clone -b develop --depth=1 https://gitlab.com/lockie/d2clone-kit.git /root/quicklisp/local-projects/d2clone-kit
 

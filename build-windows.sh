@@ -39,6 +39,9 @@ wine msiexec /q /i /tmp/sbcl-${SBCL_VERSION}-x86-64-windows-binary.msi
 wget -q https://beta.quicklisp.org/quicklisp.lisp -P /tmp
 (cd /tmp && echo "(quicklisp-quickstart:install) (ql-util:without-prompting (ql:add-to-init-file))" | wine sbcl --load quicklisp.lisp)
 
+# Get latest cl-liballegro
+git clone --depth=1 https://github.com/resttime/cl-liballegro "$PREFIX/drive_c/users/$(whoami)/quicklisp/local-projects/cl-liballegro"
+
 # Get d2clone-kit
 git clone -b develop --depth=1 https://gitlab.com/lockie/d2clone-kit "$PREFIX/drive_c/users/$(whoami)/quicklisp/local-projects/d2clone-kit"
 
