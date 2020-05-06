@@ -44,7 +44,7 @@ linuxdeploy --appimage-extract-and-run --executable=bin/dld --custom-apprun=AppR
 rm -fr appimage/usr/share/doc appimage/usr/lib/libxcb*
 install -D bin/dld appimage/usr/bin/
 install -D assets/assets.zip -m 644 "appimage/usr/share/Darkness Looming The Dawn/assets.zip"
-appimagetool --appimage-extract-and-run -g appimage Darkness_Looming_The_Dawn-$VERSION.AppImage
+appimagetool --appimage-extract-and-run --comp xz -g appimage Darkness_Looming_The_Dawn-$VERSION.AppImage
 
 # Install butler
 wget -q https://broth.itch.ovh/butler/linux-amd64/LATEST/archive/default -P /tmp --content-disposition

@@ -3,7 +3,7 @@ linux-release:
   only:
     - master
   image:
-    name: daewok/sbcl:debian-stretch
+    name: daewok/sbcl:debian-stretch-fancy
     entrypoint: [""]
   before_script:
     - export DEBIAN_FRONTEND="noninteractive"
