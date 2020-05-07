@@ -43,7 +43,7 @@ Section ""
 
     ;Files
     File /r "bin"
-    File /r "assets"
+    File /r "Resources"
 
     ;Create desktop shortcut
     CreateShortCut "$DESKTOP\${MUI_PRODUCT}.lnk" "$INSTDIR\bin\${MUI_FILE}.exe"

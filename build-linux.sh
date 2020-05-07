@@ -43,7 +43,7 @@ sbcl --dynamic-space-size 2048 --disable-debugger --load build.lisp
 linuxdeploy --appimage-extract-and-run --executable=bin/dld --custom-apprun=AppRun --icon-file=dld.png --desktop-file=dld.desktop --appdir=appimage $(find bin -name "lib*" -printf "-l%p ")
 rm -fr appimage/usr/share/doc appimage/usr/lib/libxcb*
 install -D bin/dld appimage/usr/bin/
-install -D assets/assets.zip -m 644 "appimage/usr/share/Darkness Looming The Dawn/assets.zip"
+install -D Resources/assets.zip -m 644 "appimage/usr/share/Darkness Looming The Dawn/assets.zip"
 appimagetool --appimage-extract-and-run --comp xz -g appimage Darkness_Looming_The_Dawn-$VERSION.AppImage
 
 # Install butler
