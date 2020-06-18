@@ -16,6 +16,7 @@ wget -q https://pilotfiber.dl.sourceforge.net/project/mingw-w64/Toolchains%20tar
 # Install required libraries
 packages=(
     "mingw-w64-x86_64-libffi-3.2.1-4-any.pkg.tar.xz"
+    "mingw-w64-x86_64-make-4.3-1-any.pkg.tar.xz"
     "mingw-w64-x86_64-pkg-config-0.29.2-1-any.pkg.tar.xz"
     "mingw-w64-x86_64-zlib-1.2.11-1-any.pkg.tar.xz"
 )
@@ -25,8 +26,11 @@ for pkg in ${packages[*]}; do
 done
 cp "$PREFIX/drive_c/mingw64/bin/libffi-6.dll" "$PREFIX/drive_c/windows"
 cp "$PREFIX/drive_c/mingw64/bin/zlib1.dll" "$PREFIX/drive_c/windows"
+cp "$PREFIX/drive_c/mingw64/bin/mingw32-make.exe" "$PREFIX/drive_c/mingw64/bin/make.exe"
 wget -q https://github.com/liballeg/allegro5/releases/download/"$ALLEGRO_VERSION"/allegro-x86_64-w64-mingw32-gcc-9.2.0-posix-seh-dynamic-"$ALLEGRO_VERSION".zip -P /tmp
 unzip -qqj /tmp/allegro-x86_64-w64-mingw32-gcc-9.2.0-posix-seh-dynamic-"$ALLEGRO_VERSION".zip 'allegro/bin/*' -d "$PREFIX/drive_c/windows/"
+unzip -qq /tmp/allegro-x86_64-w64-mingw32-gcc-9.2.0-posix-seh-dynamic-"$ALLEGRO_VERSION".zip 'allegro/include/*' -d /tmp && cp -r /tmp/allegro/include "$PREFIX/drive_c/mingw64/lib/gcc/x86_64-w64-mingw32/8.1.0"
+unzip -qqj /tmp/allegro-x86_64-w64-mingw32-gcc-9.2.0-posix-seh-dynamic-"$ALLEGRO_VERSION".zip 'allegro/lib/*' -d "$PREFIX/drive_c/mingw64/lib"
 echo "REGEDIT4
 
 [HKEY_CURRENT_USER\Environment]
@@ -41,6 +45,9 @@ wget -q https://beta.quicklisp.org/quicklisp.lisp -P /tmp
 
 # Get latest cl-liballegro
 git clone --depth=1 https://github.com/resttime/cl-liballegro "$PREFIX/drive_c/users/$(whoami)/quicklisp/local-projects/cl-liballegro"
+
+# Get latest cl-liballegro-nuklear
+git clone --depth=1 https://gitlab.com/lockie/cl-liballegro-nuklear "$PREFIX/drive_c/users/$(whoami)/quicklisp/local-projects/cl-liballegro-nuklear"
 
 # Get d2clone-kit
 git clone -b develop --depth=1 https://gitlab.com/lockie/d2clone-kit "$PREFIX/drive_c/users/$(whoami)/quicklisp/local-projects/d2clone-kit"

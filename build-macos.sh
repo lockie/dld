@@ -15,6 +15,9 @@ echo "(quicklisp-quickstart:install) (ql-util:without-prompting (ql:add-to-init-
 # Get latest cl-liballegro
 git clone --depth=1 https://github.com/resttime/cl-liballegro $HOME/quicklisp/local-projects/cl-liballegro
 
+# Get latest cl-liballegro-nuklear
+git clone --depth=1 https://gitlab.com/lockie/cl-liballegro-nuklear $HOME/quicklisp/local-projects/cl-liballegro-nuklear
+
 # Get d2clone-kit
 git clone -b develop --depth=1 https://gitlab.com/lockie/d2clone-kit.git $HOME/quicklisp/local-projects/d2clone-kit
 

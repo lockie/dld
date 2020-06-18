@@ -24,8 +24,12 @@ A: As a matter of fact you are. The assets in this repository are stored using [
 Used art
 --------
 * [Alegreya SC font](https://fontsquirrel.com/fonts/alegreya) by Juan Pablo del Peral, licensed under SIL Open Font License v1.10.
+* [Noto Mono font](https://google.com/get/noto) by Google, licensed under SIL Open Font License v1.10.
+* [Backgrounds](https://opengameart.org/content/backgrounds-0) by Écrivain, licensed under Public Domain.
+* [Flare buttons](https://opengameart.org/content/flare-buttons) by Blarumyrran, licensed under Public Domain.
 * [Health orb](https://opengameart.org/content/health-orb-11) by itsmars, licensed under Public Domain.
 * [Grassland tileset](https://opengameart.org/content/grassland-tileset) by Clint Bellanger, licensed under CC BY-SA 3.0.
+* [SFX - 5 Menu Screen Slides](https://opengameart.org/content/sfx-5-menu-screen-slides) by Cleyton Kauffman, licensed under CC BY-SA 4.0.
 * [Sound effects pack](https://opengameart.org/content/sound-effects-pack) by OwlishMedia, licensed under Public Domain.
 * [Female gruntwork](https://opengameart.org/content/female-gruntwork-1) by Simone Bruhn, licensed under CC BY-SA 4.0.
 * [RPG sound pack](https://opengameart.org/content/rpg-sound-pack) by artisticdude, licensed under Public Domain.
