@@ -20,7 +20,7 @@ windows-release:
   only:
     - master
   image:
-    name: scottyhardy/docker-wine:wine-stable-5.0.0
+    name: scottyhardy/docker-wine:stable-5.0.1
     entrypoint: [""]
   before_script:
     - apt-get update -qq

@@ -9,7 +9,7 @@ tar -xf /tmp/lddx-0.1.0.tar.xz -C /usr/local/bin
 chmod +x /usr/local/bin/lddx
 
 # Install quicklisp
-(cd /tmp; curl -sO https://beta.quicklisp.org/quicklisp.lisp)
+(cd /tmp; curl --insecure -sO https://beta.quicklisp.org/quicklisp.lisp)
 echo "(quicklisp-quickstart:install) (ql-util:without-prompting (ql:add-to-init-file))" | sbcl --load /tmp/quicklisp.lisp
 
 # Get latest cl-liballegro
