@@ -50,8 +50,9 @@ git clone --depth=1 https://gitlab.com/lockie/cl-liballegro-nuklear /root/quickl
 git clone -b develop --depth=1 https://gitlab.com/lockie/d2clone-kit.git /root/quicklisp/local-projects/d2clone-kit
 
 # Do build
-VERSION=$(git describe --tags | sed 's/\(.*\)-.*/\1/')
+VERSION=$(git describe --tags | sed 's/\(.*\)-\(.*\)-.*/\1.\2/')
 export VERSION
+echo "$VERSION" > version.txt
 sbcl --dynamic-space-size 2048 --disable-debugger --load build.lisp
 linuxdeploy --appimage-extract-and-run --executable=bin/dld --custom-apprun=AppRun --icon-file=dld.png --desktop-file=dld.desktop --appdir=appimage $(find bin -name "lib*" -printf "-l%p ")
 rm -fr appimage/usr/share/doc appimage/usr/lib/libxcb*

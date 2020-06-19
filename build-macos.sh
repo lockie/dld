@@ -23,8 +23,9 @@ git clone --depth=1 https://gitlab.com/lockie/cl-liballegro-nuklear $HOME/quickl
 git clone -b develop --depth=1 https://gitlab.com/lockie/d2clone-kit.git $HOME/quicklisp/local-projects/d2clone-kit
 
 # Do build
-VERSION=$(git describe --tags | sed 's/\(.*\)-.*/\1/')
+VERSION=$(git describe --tags | sed 's/\(.*\)-\(.*\)-.*/\1.\2/')
 export VERSION
+echo "$VERSION" > version.txt
 sbcl --dynamic-space-size 2048 --disable-debugger --load build.lisp
 outdir="Darkness Looming: The Dawn.app/Contents"
 mkdir -p "$outdir"/{Frameworks,MacOS,Resources}

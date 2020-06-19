@@ -55,3 +55,4 @@ bin/
 appimage/
 *.exe
 *.AppImage
+version.txt

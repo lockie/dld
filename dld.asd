@@ -1,4 +1,5 @@
 (asdf:defsystem :dld
+  :version (:read-file-line "version.txt")
   :description "Darkness Looming: The Dawn"
   :author "Andrew Kravchuk <awkravchuk@gmail.com>"
   :license "GPL v3"

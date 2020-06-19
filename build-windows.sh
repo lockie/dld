@@ -53,11 +53,12 @@ git clone --depth=1 https://gitlab.com/lockie/cl-liballegro-nuklear "$PREFIX/dri
 git clone -b develop --depth=1 https://gitlab.com/lockie/d2clone-kit "$PREFIX/drive_c/users/$(whoami)/quicklisp/local-projects/d2clone-kit"
 
 # Do build
+VERSION=$(git describe --tags | sed 's/\(.*\)-\(.*\)-.*/\1.\2/')
+export VERSION
+echo "$VERSION" > version.txt
 wine sbcl --dynamic-space-size 2048 --disable-debugger --load build.lisp
 cp "$PREFIX/drive_c/mingw64/bin/libgcc_s_seh-1.dll" bin/
 cp "$PREFIX/drive_c/mingw64/bin/libstdc++-6.dll" bin/
-VERSION=$(git describe --tags | sed 's/\(.*\)-.*/\1/')
-export VERSION
 makensis installer.nsi
 
 # Install butler

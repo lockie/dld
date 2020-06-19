@@ -1,5 +1,7 @@
 (in-package :dld)
 
+(defvar *version-string*
+  (format nil "v ~a" (slot-value (asdf:find-system :dld) 'asdf:version)))
 
 (defun main ()
   (d2c:start-engine
