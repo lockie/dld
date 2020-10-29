@@ -13,8 +13,8 @@ wget -q -P /tmp \
      http://mirrors.edge.kernel.org/ubuntu/pool/main/libw/libwebp/libwebp-dev_0.4.4-1_amd64.deb \
      http://mirrors.edge.kernel.org/ubuntu/pool/main/libw/libwebp/libwebpmux1_0.4.4-1_amd64.deb \
      http://mirrors.edge.kernel.org/ubuntu/pool/main/libw/libwebp/libwebpdemux1_0.4.4-1_amd64.deb \
-     http://mirrors.edge.kernel.org/ubuntu/pool/main/f/freetype/libfreetype6-dev_2.6.1-0.1ubuntu2.4_amd64.deb \
-     http://mirrors.edge.kernel.org/ubuntu/pool/main/f/freetype/libfreetype6_2.6.1-0.1ubuntu2.4_amd64.deb \
+     http://mirrors.edge.kernel.org/ubuntu/pool/main/f/freetype/libfreetype6-dev_2.6.1-0.1ubuntu2.5_amd64.deb \
+     http://mirrors.edge.kernel.org/ubuntu/pool/main/f/freetype/libfreetype6_2.6.1-0.1ubuntu2.5_amd64.deb \
      https://launchpad.net/~allegro/+archive/ubuntu/5.2/+build/18782422/+files/liballegro-acodec5.2_5.2.6.0-2~xenial_amd64.deb \
      https://launchpad.net/~allegro/+archive/ubuntu/5.2/+build/18782422/+files/liballegro-audio5.2_5.2.6.0-2~xenial_amd64.deb \
      https://launchpad.net/~allegro/+archive/ubuntu/5.2/+build/18782422/+files/liballegro-dialog5.2_5.2.6.0-2~xenial_amd64.deb \
