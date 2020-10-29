@@ -28,6 +28,7 @@ Used art
 * [Backgrounds](https://opengameart.org/content/backgrounds-0) by Écrivain, licensed under Public Domain.
 * [Flare buttons](https://opengameart.org/content/flare-buttons) by Blarumyrran, licensed under Public Domain.
 * [Health orb](https://opengameart.org/content/health-orb-11) by itsmars, licensed under Public Domain.
+* [Loading bar](https://opengameart.org/content/loading-bar) by StumpyStrust, licensed under Public Domain.
 * [Grassland tileset](https://opengameart.org/content/grassland-tileset) by Clint Bellanger, licensed under CC BY-SA 3.0.
 * [SFX - 5 Menu Screen Slides](https://opengameart.org/content/sfx-5-menu-screen-slides) by Cleyton Kauffman, licensed under CC BY-SA 4.0.
 * [Sound effects pack](https://opengameart.org/content/sound-effects-pack) by OwlishMedia, licensed under Public Domain.
