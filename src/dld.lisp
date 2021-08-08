@@ -1,7 +1,8 @@
 (in-package :dld)
 
-(defvar *version-string*
-  (format nil "v ~a" (slot-value (asdf:find-system :dld) 'asdf:version)))
+(alexandria:define-constant +version-string+
+    (format nil "v ~a" (slot-value (asdf:find-system :dld) 'asdf:version))
+  :test #'string=)
 
 (defun main ()
   (d2c:start-engine
