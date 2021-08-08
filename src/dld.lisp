@@ -189,6 +189,7 @@
       (:character :speed 0.7d0)
       (:hp :current 220d0 :maximum 220d0)
       (:combat :min-damage 4d0 :max-damage 18d0)))
+   nil
    :display-width 800
    :display-height 600
    :display-font "alegreya-sc.ttf"))

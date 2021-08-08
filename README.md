@@ -40,9 +40,17 @@ Used art
 * [Bone, fall, ledge climbing, impact from Yo Frankie!](https://opengameart.org/content/bone-fall-ledge-climbing-impact-yo-frankie) by Blender Foundation, licensed under CC BY 3.0.
 * [Walking skeleton](https://opengameart.org/content/walking-skeleton) by Sebastian Riedel, licensed under CC BY 3.0.
 * [Punches, hits, swords and squishes](https://opengameart.org/content/punches-hits-swords-and-squishes) by Philippe Groarke, licensed under CC BY-SA 3.0.
+* [Punch](https://opengameart.org/content/punch) by Iwan Gabovitch, licensed by Public Domain.
+* [Flesh & Blood » Gutsy Spillage 1](https://freesound.org/people/magnuswaker/sounds/522159/) by Adam Livingstone, licensed by Public Domain.
+* [Zombie Flesh Bites](https://freesound.org/people/MrPokephile/sounds/155973/) by MrPokephile, licensed by Public Domain.
 * [Zombie, spider and monster](https://opengameart.org/content/zombie-spider-and-monster) by Jute, licensed under GPL 3.0.
 * [Zombies sound pack](https://opengameart.org/content/zombies-sound-pack) by artisticdude, licensed under Public Domain.
 * [Footsteps leather, cloth, armor](https://opengameart.org/content/footsteps-leather-cloth-armor) by Brandon Morris, licensed under Public Domain.
+* [Swish - bamboo stick weapon swhoshes](https://opengameart.org/content/swish-bamboo-stick-weapon-swhoshes) by Iwan Gabovitch, licensed under Public Domain.
+* [Wing Sounds Fly's & Cricket Wing Sound Effects](https://freetousesounds.bandcamp.com/album/wing-sounds-flys-cricket-wing-sound-effects) by Marcel Gnauk, licensed under royalty-free license.
+* [Bone Crunch](https://freesound.org/people/GreatNate98/sounds/355052) by GreatNate98, licensed under Public Domain.
+* [Celery twisting](https://freesound.org/people/Microtubule/sounds/533432) by Tom McNally, licensed by CC BY 3.0.
+* [Monster shriek](https://freesound.org/people/Darsycho/sounds/442564) by Darsycho, licensed by Public Domain.
 * [Isometric hero and heroine](https://opengameart.org/content/isometric-hero-and-heroine) by Clint Bellanger, licensed under CC BY 3.0.
 * [Flying loot animations](https://opengameart.org/content/flying-loot-animations) by Clint Bellanger, licensed under CC BY 3.0.
 * [Skeleton warrior](https://opengameart.org/content/skeleton-warrior) by Clint Bellanger, licensed under CC BY 3.0.

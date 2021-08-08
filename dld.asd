@@ -3,7 +3,7 @@
   :description "Darkness Looming: The Dawn"
   :author "Andrew Kravchuk <awkravchuk@gmail.com>"
   :license "GPL v3"
-  :depends-on ((:version :d2clone-kit "0.1.0"))
+  :depends-on ((:version :d2clone-kit "0.1.1"))
   :pathname "src"
   :serial t
   :components ((:file "package")
