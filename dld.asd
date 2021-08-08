@@ -20,3 +20,8 @@
   :build-operation "deploy:deploy-op"
   :build-pathname "dld"
   :entry-point "dld:main")
+
+#+linux (deploy:define-hook (:build sort-libs -1) ()
+          ;; HACK for liballegro-nuklear to load
+          (setf deploy::*foreign-libraries-to-reload*
+                (nreverse deploy::*foreign-libraries-to-reload*)))

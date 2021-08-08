@@ -3,11 +3,12 @@ linux-release:
   only:
     - master
   image:
-    name: daewok/sbcl:debian-stretch-fancy
+    name: daewok/sbcl:stretch
     entrypoint: [""]
   before_script:
     - export DEBIAN_FRONTEND="noninteractive"
     - apt-get update -qq
+    - apt-get remove -y libpng-dev libjpeg62-turbo-dev
     - apt-get install -y --no-install-recommends ca-certificates file gcc git libc-dev libdumb1 libffi-dev libflac8 libgdk-pixbuf2.0-0 libgl1-mesa-dev libgl1-mesa-glx libglib2.0-0 libglu1-mesa-dev libgtk2.0-0 libice-dev libogg0 libopenal1 libopusfile0 libpango-1.0-0 libphysfs1 libpulse0 libsm-dev libtheora0 libvorbis0a libvorbisfile3 libx11-dev libxcursor-dev libxext-dev libxinerama-dev libxpm4 libxpm-dev libxrandr-dev make pkg-config unzip wget
   script:
     - bash -x build-linux.sh
@@ -20,11 +21,12 @@ windows-release:
   only:
     - master
   image:
-    name: scottyhardy/docker-wine:stable-5.0.1
+    name: scottyhardy/docker-wine:stable-5.0.3
     entrypoint: [""]
   before_script:
+    - export DEBIAN_FRONTEND="noninteractive"
     - apt-get update -qq
-    - apt-get install -y --no-install-recommends git nsis p7zip-full xz-utils zip
+    - apt-get install -y --no-install-recommends git nsis p7zip-full xz-utils zip zstd
   script:
     - bash -x build-windows.sh
   artifacts:

@@ -3,6 +3,7 @@
 set -e
 
 # Scavenge latest allegro
+# TODO : use files from Bionic to get latest v5.2.7
 wget -q -P /tmp \
      http://mirrors.kernel.org/ubuntu/pool/main/libj/libjpeg8-empty/libjpeg8_8c-2ubuntu8_amd64.deb \
      http://security.ubuntu.com/ubuntu/pool/main/libj/libjpeg-turbo/libjpeg-turbo8_1.4.2-0ubuntu3.4_amd64.deb \
@@ -47,7 +48,7 @@ git clone --depth=1 https://github.com/resttime/cl-liballegro /root/quicklisp/lo
 git clone --depth=1 https://gitlab.com/lockie/cl-liballegro-nuklear /root/quicklisp/local-projects/cl-liballegro-nuklear
 
 # Get d2clone-kit
-git clone -b develop --depth=1 https://gitlab.com/lockie/d2clone-kit.git /root/quicklisp/local-projects/d2clone-kit
+git clone --depth=1 https://gitlab.com/lockie/d2clone-kit.git /root/quicklisp/local-projects/d2clone-kit
 
 # Do build
 VERSION=$(git describe --tags | sed 's/\(.*\)-\(.*\)-.*/\1.\2/')
