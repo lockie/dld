@@ -188,4 +188,4 @@
    nil
    :display-width 800
    :display-height 600
-   :display-font "alegreya-sc.ttf"))
+   :display-font "font.ttf"))
