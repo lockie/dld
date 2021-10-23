@@ -3,6 +3,8 @@
 set -e
 
 # Install prerequisites
+brew update
+brew upgrade || true
 brew install sbcl allegro
 (cd /tmp; curl -sLO https://github.com/jtanx/lddx/releases/download/v0.1.0/lddx-0.1.0.tar.xz)
 tar -xf /tmp/lddx-0.1.0.tar.xz -C /usr/local/bin
