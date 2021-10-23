@@ -20,7 +20,7 @@ git clone --depth=1 https://github.com/resttime/cl-liballegro $HOME/quicklisp/lo
 git clone --depth=1 https://gitlab.com/lockie/cl-liballegro-nuklear $HOME/quicklisp/local-projects/cl-liballegro-nuklear
 
 # Get d2clone-kit
-git clone --depth=1 https://gitlab.com/lockie/d2clone-kit.git $HOME/quicklisp/local-projects/d2clone-kit
+git clone --depth=1 --branch master https://gitlab.com/lockie/d2clone-kit.git $HOME/quicklisp/local-projects/d2clone-kit
 
 # Do build
 VERSION=$(git describe --tags | sed 's/\(.*\)-\(.*\)-.*/\1.\2/')

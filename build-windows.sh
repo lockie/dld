@@ -50,7 +50,7 @@ git clone --depth=1 https://github.com/resttime/cl-liballegro "$PREFIX/drive_c/u
 git clone --depth=1 https://gitlab.com/lockie/cl-liballegro-nuklear "$PREFIX/drive_c/users/$(whoami)/quicklisp/local-projects/cl-liballegro-nuklear"
 
 # Get d2clone-kit
-git clone --depth=1 https://gitlab.com/lockie/d2clone-kit "$PREFIX/drive_c/users/$(whoami)/quicklisp/local-projects/d2clone-kit"
+git clone --depth=1 --branch master https://gitlab.com/lockie/d2clone-kit "$PREFIX/drive_c/users/$(whoami)/quicklisp/local-projects/d2clone-kit"
 
 # Do build
 VERSION=$(git describe --tags | sed 's/\(.*\)-\(.*\)-.*/\1.\2/')

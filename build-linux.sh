@@ -3,31 +3,25 @@
 set -e
 
 # Scavenge latest allegro
-# TODO : use files from Bionic to get latest v5.2.7
 wget -q -P /tmp \
      http://mirrors.kernel.org/ubuntu/pool/main/libj/libjpeg8-empty/libjpeg8_8c-2ubuntu8_amd64.deb \
      http://security.ubuntu.com/ubuntu/pool/main/libj/libjpeg-turbo/libjpeg-turbo8_1.4.2-0ubuntu3.4_amd64.deb \
      http://security.ubuntu.com/ubuntu/pool/main/libj/libjpeg-turbo/libjpeg-turbo8-dev_1.4.2-0ubuntu3.4_amd64.deb \
-     http://security.ubuntu.com/ubuntu/pool/main/libp/libpng/libpng12-0_1.2.54-1ubuntu1.1_amd64.deb \
-     http://security.ubuntu.com/ubuntu/pool/main/libp/libpng/libpng12-dev_1.2.54-1ubuntu1.1_amd64.deb \
-     http://mirrors.kernel.org/ubuntu/pool/main/libw/libwebp/libwebp5_0.4.4-1_amd64.deb \
-     http://mirrors.edge.kernel.org/ubuntu/pool/main/libw/libwebp/libwebp-dev_0.4.4-1_amd64.deb \
-     http://mirrors.edge.kernel.org/ubuntu/pool/main/libw/libwebp/libwebpmux1_0.4.4-1_amd64.deb \
-     http://mirrors.edge.kernel.org/ubuntu/pool/main/libw/libwebp/libwebpdemux1_0.4.4-1_amd64.deb \
-     http://mirrors.edge.kernel.org/ubuntu/pool/main/f/freetype/libfreetype6-dev_2.6.1-0.1ubuntu2.5_amd64.deb \
-     http://mirrors.edge.kernel.org/ubuntu/pool/main/f/freetype/libfreetype6_2.6.1-0.1ubuntu2.5_amd64.deb \
-     https://launchpad.net/~allegro/+archive/ubuntu/5.2/+build/18782422/+files/liballegro-acodec5.2_5.2.6.0-2~xenial_amd64.deb \
-     https://launchpad.net/~allegro/+archive/ubuntu/5.2/+build/18782422/+files/liballegro-audio5.2_5.2.6.0-2~xenial_amd64.deb \
-     https://launchpad.net/~allegro/+archive/ubuntu/5.2/+build/18782422/+files/liballegro-dialog5.2_5.2.6.0-2~xenial_amd64.deb \
-     https://launchpad.net/~allegro/+archive/ubuntu/5.2/+build/18782422/+files/liballegro-image5.2_5.2.6.0-2~xenial_amd64.deb \
-     https://launchpad.net/~allegro/+archive/ubuntu/5.2/+build/18782422/+files/liballegro-image5-dev_5.2.6.0-2~xenial_amd64.deb \
-     https://launchpad.net/~allegro/+archive/ubuntu/5.2/+build/18782422/+files/liballegro-physfs5.2_5.2.6.0-2~xenial_amd64.deb \
-     https://launchpad.net/~allegro/+archive/ubuntu/5.2/+build/18782422/+files/liballegro-ttf5.2_5.2.6.0-2~xenial_amd64.deb \
-     https://launchpad.net/~allegro/+archive/ubuntu/5.2/+build/18782422/+files/liballegro-ttf5-dev_5.2.6.0-2~xenial_amd64.deb \
-     https://launchpad.net/~allegro/+archive/ubuntu/5.2/+build/18782422/+files/liballegro-video5.2_5.2.6.0-2~xenial_amd64.deb \
-     https://launchpad.net/~allegro/+archive/ubuntu/5.2/+build/18782422/+files/liballegro5.2_5.2.6.0-2~xenial_amd64.deb \
-     https://launchpad.net/~allegro/+archive/ubuntu/5.2/+build/18782422/+files/liballegro5-dev_5.2.6.0-2~xenial_amd64.deb
+     https://launchpad.net/~allegro/+archive/ubuntu/5.2/+build/21726487/+files/liballegro-acodec5.2_5.2.7.0-1~bionic_amd64.deb \
+     https://launchpad.net/~allegro/+archive/ubuntu/5.2/+build/21726487/+files/liballegro-audio5.2_5.2.7.0-1~bionic_amd64.deb \
+     https://launchpad.net/~allegro/+archive/ubuntu/5.2/+build/21726487/+files/liballegro-dialog5.2_5.2.7.0-1~bionic_amd64.deb \
+     https://launchpad.net/~allegro/+archive/ubuntu/5.2/+build/21726487/+files/liballegro-image5.2_5.2.7.0-1~bionic_amd64.deb \
+     https://launchpad.net/~allegro/+archive/ubuntu/5.2/+build/21726487/+files/liballegro-image5-dev_5.2.7.0-1~bionic_amd64.deb \
+     https://launchpad.net/~allegro/+archive/ubuntu/5.2/+build/21726487/+files/liballegro-physfs5.2_5.2.7.0-1~bionic_amd64.deb \
+     https://launchpad.net/~allegro/+archive/ubuntu/5.2/+build/21726487/+files/liballegro-ttf5.2_5.2.7.0-1~bionic_amd64.deb \
+     https://launchpad.net/~allegro/+archive/ubuntu/5.2/+build/21726487/+files/liballegro-ttf5-dev_5.2.7.0-1~bionic_amd64.deb \
+     https://launchpad.net/~allegro/+archive/ubuntu/5.2/+build/21726487/+files/liballegro-video5.2_5.2.7.0-1~bionic_amd64.deb \
+     https://launchpad.net/~allegro/+archive/ubuntu/5.2/+build/21726487/+files/liballegro5.2_5.2.7.0-1~bionic_amd64.deb \
+     https://launchpad.net/~allegro/+archive/ubuntu/5.2/+build/21726487/+files/liballegro5-dev_5.2.7.0-1~bionic_amd64.deb
+
 dpkg -i /tmp/*.deb
+
+ln -s /usr/lib/x86_64-linux-gnu/libwebp.so /usr/lib/x86_64-linux-gnu/libwebp.so.7
 
 # Install linuxdeploy
 wget -q -O /usr/local/bin/linuxdeploy https://github.com/linuxdeploy/linuxdeploy/releases/download/continuous/linuxdeploy-x86_64.AppImage
@@ -48,7 +42,7 @@ git clone --depth=1 https://github.com/resttime/cl-liballegro /root/quicklisp/lo
 git clone --depth=1 https://gitlab.com/lockie/cl-liballegro-nuklear /root/quicklisp/local-projects/cl-liballegro-nuklear
 
 # Get d2clone-kit
-git clone --depth=1 https://gitlab.com/lockie/d2clone-kit.git /root/quicklisp/local-projects/d2clone-kit
+git clone --depth=1 --branch master https://gitlab.com/lockie/d2clone-kit.git /root/quicklisp/local-projects/d2clone-kit
 
 # Do build
 VERSION=$(git describe --tags | sed 's/\(.*\)-\(.*\)-.*/\1.\2/')
@@ -59,7 +53,7 @@ linuxdeploy --appimage-extract-and-run --executable=bin/dld --custom-apprun=AppR
 rm -fr appimage/usr/share/doc appimage/usr/lib/libxcb*
 install -D bin/dld appimage/usr/bin/
 install -D Resources/assets.zip -m 644 "appimage/usr/share/Darkness Looming The Dawn/assets.zip"
-appimagetool --appimage-extract-and-run --comp xz -g appimage Darkness_Looming_The_Dawn-$VERSION.AppImage
+ARCH=x86_64 appimagetool --appimage-extract-and-run --comp xz -g appimage Darkness_Looming_The_Dawn-$VERSION.AppImage
 
 # Install butler
 wget -q https://broth.itch.ovh/butler/linux-amd64/LATEST/archive/default -P /tmp --content-disposition
