@@ -8,14 +8,6 @@
   :serial t
   :components ((:file "package")
                (:file "dld"))
-  :around-compile (lambda (next)
-                    (when (find :release *features*)
-                      (proclaim '(optimize
-                                  (speed 3)
-                                  (debug 0)
-                                  (compilation-speed 0)
-                                  (safety 1))))
-                    (funcall next))
   :defsystem-depends-on (:deploy)
   :build-operation "deploy:deploy-op"
   :build-pathname "dld"
