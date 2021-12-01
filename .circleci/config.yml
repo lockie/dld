@@ -1,0 +1,85 @@
+version: 2.1
+jobs:
+  build-linux:
+    docker:
+      - image: lockie/docker-lisp-gamedev:latest
+    resource_class: small
+    steps:
+      - checkout
+      - run:
+          name: Build Linux AppImage
+          command: ./build-linux.sh
+      - store_artifacts:
+          path: /root/project/Darkness_Looming_The_Dawn.tar
+          destination: linux.tar
+  build-macos:
+    macos:
+      xcode: 13.2.0
+    steps:
+      - checkout
+      - run:
+          name: Build MacOS bundle
+          command: ./build-macos.sh
+      - store_artifacts:
+          path: /Users/distiller/project/Darkness_Looming_The_Dawn.tar
+          destination: macos.tar
+  build-windows:
+    docker:
+      - image: scottyhardy/docker-wine:stable-5.0.3
+    resource_class: small
+    steps:
+      - run:
+          name: Setup Git
+          command: |
+            export DEBIAN_FRONTEND="noninteractive"
+            apt-get update -qq
+            apt-get install -y --no-install-recommends curl
+            curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.deb.sh | bash
+            apt-get install -y --no-install-recommends openssh-client git-lfs
+      - checkout
+      - run:
+          name: Build Windows Installer
+          command: ./build-windows.sh
+      - store_artifacts:
+          path: /root/project/Darkness_Looming_The_Dawn.tar
+          destination: windows.tar
+  upload:
+    docker:
+      - image: cimg/base:stable
+    steps:
+      - run:
+          name: Checkout code
+          command: |
+            ssh -o StrictHostKeyChecking=no git@github.com || true
+            git clone --bare $CIRCLE_REPOSITORY_URL .
+      - run:
+          name: Upload artifacts to itch.io
+          command: |
+            set -eux
+            wget -q https://broth.itch.ovh/butler/linux-amd64/LATEST/archive/default -P /tmp --content-disposition
+            sudo unzip -qq /tmp/butler-linux-amd64.zip -d /usr/local/bin
+            sudo chmod +x /usr/local/bin/butler
+            one=$(curl -s -H "Circle-Token: $CIRCLE_API_TOKEN" https://circleci.com/api/v1.1/project/github/lockie/dld/$(expr $CIRCLE_BUILD_NUM - 1)/artifacts)
+            two=$(curl -s -H "Circle-Token: $CIRCLE_API_TOKEN" https://circleci.com/api/v1.1/project/github/lockie/dld/$(expr $CIRCLE_BUILD_NUM - 2)/artifacts)
+            three=$(curl -s -H "Circle-Token: $CIRCLE_API_TOKEN" https://circleci.com/api/v1.1/project/github/lockie/dld/$(expr $CIRCLE_BUILD_NUM - 3)/artifacts)
+            wget -q -P /tmp $(echo $one | jq -r ".[].url")
+            wget -q -P /tmp $(echo $two | jq -r ".[].url")
+            wget -q -P /tmp $(echo $three | jq -r ".[].url")
+            tar xf /tmp/linux.tar
+            tar xf /tmp/windows.tar
+            tar xf /tmp/macos.tar
+            export VERSION=$(git describe --tags | sed 's/\(.*\)-\(.*\)-.*/\1.\2/')
+            butler push Darkness_Looming_The_Dawn-*.AppImage awkravchuk/darkness-looming-the-dawn:linux --userversion $VERSION --noprogress
+            butler push Darkness_Looming_The_Dawn-*.dmg awkravchuk/darkness-looming-the-dawn:mac --userversion $VERSION --noprogress
+            butler push Darkness_Looming_The_Dawn-*-setup.exe awkravchuk/darkness-looming-the-dawn:windows --userversion $VERSION --noprogress
+workflows:
+  build-workflow:
+    jobs:
+      - build-linux
+      - build-macos
+      - build-windows
+      - upload:
+          requires:
+            - build-linux
+            - build-macos
+            - build-windows

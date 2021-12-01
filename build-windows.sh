@@ -1,17 +1,22 @@
 #!/usr/bin/env bash
 
-set -e
+set -euxo pipefail
 
 ALLEGRO_VERSION=${ALLEGRO_VERSION:-5.2.7.0}
-SBCL_VERSION=${SBCL_VERSION:-2.1.9}
+SBCL_VERSION=${SBCL_VERSION:-2.1.10}
 PREFIX="$HOME/.wine"
+
+# Install prerequisites
+export DEBIAN_FRONTEND="noninteractive"
+apt-get update -qq
+apt-get install -y --no-install-recommends git nsis p7zip-full xz-utils zip zstd
 
 # Bootstrap wine
 winetricks > /dev/null
 
 # Bootstrap mingw64
-wget -q https://pilotfiber.dl.sourceforge.net/project/mingw-w64/Toolchains%20targetting%20Win64/Personal%20Builds/mingw-builds/8.1.0/threads-win32/seh/x86_64-8.1.0-release-win32-seh-rt_v6-rev0.7z -P /tmp
-7z x /tmp/x86_64-8.1.0-release-win32-seh-rt_v6-rev0.7z -o"$PREFIX/drive_c/" -y > /dev/null
+wget -q --content-disposition https://sourceforge.net/projects/mingw-w64/files/Toolchains%20targetting%20Win64/Personal%20Builds/mingw-builds/8.1.0/threads-posix/seh/x86_64-8.1.0-release-posix-seh-rt_v6-rev0.7z/download -P /tmp
+7z x /tmp/x86_64-8.1.0-release-posix-seh-rt_v6-rev0.7z -o"$PREFIX/drive_c/" -y > /dev/null
 
 # Install required libraries
 packages=(
@@ -39,7 +44,7 @@ wine regedit /tmp/path.reg
 
 # Install SBCL & Quicklisp
 wget -q https://github.com/roswell/sbcl_bin/releases/download/"$SBCL_VERSION"/sbcl-"$SBCL_VERSION"-x86-64-windows-binary.msi -P /tmp
-wine msiexec /q /i /tmp/sbcl-${SBCL_VERSION}-x86-64-windows-binary.msi
+wine msiexec /q /i "/tmp/sbcl-${SBCL_VERSION}-x86-64-windows-binary.msi"
 wget -q https://beta.quicklisp.org/quicklisp.lisp -P /tmp
 (cd /tmp && echo "(quicklisp-quickstart:install) (ql-util:without-prompting (ql:add-to-init-file))" | wine sbcl --load quicklisp.lisp)
 
@@ -61,10 +66,5 @@ cp "$PREFIX/drive_c/mingw64/bin/libgcc_s_seh-1.dll" bin/
 cp "$PREFIX/drive_c/mingw64/bin/libstdc++-6.dll" bin/
 makensis installer.nsi
 
-# Install butler
-wget -q https://broth.itch.ovh/butler/linux-amd64/LATEST/archive/default -P /tmp --content-disposition
-unzip /tmp/butler-linux-amd64.zip -d /usr/local/bin
-chmod +x /usr/local/bin/butler
-
-# Upload
-butler push Darkness_Looming_The_Dawn-*-setup.exe awkravchuk/darkness-looming-the-dawn:windows --userversion $VERSION --noprogress
+# Save artifact
+tar cvf Darkness_Looming_The_Dawn.tar "Darkness_Looming_The_Dawn-${VERSION}-setup.exe"

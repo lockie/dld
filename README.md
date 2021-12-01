@@ -4,7 +4,7 @@ An old-school Action RPG slasher. Made using [d2clone-kit](https://gitlab.com/lo
 
 Installation
 ------------
-Just grab executables from the [CI pipelines](https://gitlab.com/lockie/darkness-looming-the-dawn/pipelines).
+Just grab executables from [itch.io](https://awkravchuk.itch.io/darkness-looming-the-dawn#download) or from the [CI pipeline artifacts](https://app.circleci.com/pipelines/github/lockie/dld).
 
 Building from source
 --------------------
